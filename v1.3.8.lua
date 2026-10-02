@@ -987,8 +987,7 @@ task.spawn(function()
 	task.wait(0.5)
 	local textW=Converted["_TitleText"].TextBounds.X
 	if textW<10 then textW=200 end
-	local extraOffset=isMobile and 50 or 10
-	local dotX=56+textW+extraOffset
+	local dotX=56+textW+8
 	if isMobile then
 		Converted["_StatusGlow"].Size=UDim2.new(0,24,0,24)
 		Converted["_StatusDot"].Size=UDim2.new(0,15,0,15)
