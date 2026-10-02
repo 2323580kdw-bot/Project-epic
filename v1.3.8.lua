@@ -987,7 +987,7 @@ task.spawn(function()
 	task.wait(0.5)
 	local textW=Converted["_TitleText"].TextBounds.X
 	if textW<10 then textW=200 end
-	local gap=isMobile and 5 or 8
+	local gap=isMobile and 14 or 8
 	local dotX=56+textW+gap
 	if isMobile then
 		Converted["_StatusGlow"].Size=UDim2.new(0,24,0,24)
@@ -1744,7 +1744,7 @@ local function SCALE_fake_script()
 
 	local rs=Instance.new("UIScale")
 	rs.Name="EpicScale"
-	rs.Scale=1.0
+	rs.Scale=1.15
 	rs.Parent=Converted["_ReopenBtn"]
 end
 
