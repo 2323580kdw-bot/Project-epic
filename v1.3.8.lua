@@ -609,7 +609,6 @@ Converted["_Page2Stroke"].Thickness=1.2
 Converted["_Page2Stroke"].Transparency=0
 Converted["_Page2Stroke"].Parent=Converted["_Page2Btn"]
 
--- ===== SETTINGS =====
 Converted["_SettingsContent"].Size=UDim2.new(1,0,1,0)
 Converted["_SettingsContent"].BackgroundTransparency=1
 Converted["_SettingsContent"].Visible=false
@@ -629,7 +628,6 @@ Converted["_SettingsLabel"].Font=Enum.Font.GothamBold
 Converted["_SettingsLabel"].TextXAlignment=Enum.TextXAlignment.Left
 Converted["_SettingsLabel"].Parent=Converted["_SettingsContent"]
 
--- ===== LOGS INSIDE SETTINGS (at top) =====
 Converted["_LogsLabel"].Size=UDim2.new(0,100,0,22)
 Converted["_LogsLabel"].Position=UDim2.new(0,30,0,50)
 Converted["_LogsLabel"].BackgroundTransparency=1
@@ -727,9 +725,7 @@ local LogsListLayout=Instance.new("UIListLayout")
 LogsListLayout.SortOrder=Enum.SortOrder.LayoutOrder
 LogsListLayout.Padding=UDim.new(0,1)
 LogsListLayout.Parent=Converted["_LogsScroll"]
--- ===== END LOGS =====
 
--- Diğer Settings öğeleri
 Converted["_StatusFrame"].Size=UDim2.new(1,-60,0,60)
 Converted["_StatusFrame"].Position=UDim2.new(0,30,0,245)
 Converted["_StatusFrame"].BackgroundTransparency=1
@@ -993,8 +989,17 @@ task.spawn(function()
 	if textW<10 then textW=200 end
 	local extraOffset=isMobile and 15 or 10
 	local dotX=56+textW+extraOffset
-	Converted["_StatusGlow"].Position=UDim2.new(0,dotX-4,0.5,-10)
-	Converted["_StatusDot"].Position=UDim2.new(0,dotX,0.5,-6)
+	if isMobile then
+		Converted["_StatusGlow"].Size=UDim2.new(0,24,0,24)
+		Converted["_StatusDot"].Size=UDim2.new(0,15,0,15)
+		Converted["_StatusGlow"].Position=UDim2.new(0,dotX-6,0.5,-12)
+		Converted["_StatusDot"].Position=UDim2.new(0,dotX-1,0.5,-7)
+	else
+		Converted["_StatusGlow"].Size=UDim2.new(0,20,0,20)
+		Converted["_StatusDot"].Size=UDim2.new(0,12,0,12)
+		Converted["_StatusGlow"].Position=UDim2.new(0,dotX-4,0.5,-10)
+		Converted["_StatusDot"].Position=UDim2.new(0,dotX,0.5,-6)
+	end
 end)
 
 local PLACEHOLDER_TEXT = "write your code here..."
@@ -1739,7 +1744,7 @@ local function SCALE_fake_script()
 
 	local rs=Instance.new("UIScale")
 	rs.Name="EpicScale"
-	rs.Scale=1.27
+	rs.Scale=1.0
 	rs.Parent=Converted["_ReopenBtn"]
 end
 
